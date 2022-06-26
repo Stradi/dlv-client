@@ -4,6 +4,7 @@ specifiers:
   '@types/node': ^18.0.0
   '@types/react': ^18.0.14
   autoprefixer: ^10.4.7
+  classnames: ^2.3.1
   eslint: 8.18.0
   eslint-config-next: 12.1.6
   next: 12.1.6
@@ -14,6 +15,7 @@ specifiers:
   typescript: ^4.7.4
 
 dependencies:
+  classnames: 2.3.1
   next: 12.1.6_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -512,6 +514,10 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
+
+  /classnames/2.3.1:
+    resolution: {integrity: sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==}
+    dev: false
 
   /color-convert/2.0.1:
     resolution: {integrity: sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==}

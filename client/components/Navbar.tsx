@@ -8,7 +8,7 @@ interface NavItemProps {
 const NavItem = ({ title, href }: NavItemProps) => {
   return (
     <Link href={href}>
-      <a className="px-4 py-1 mx-2 bg-neutral-800 rounded-md hover:bg-neutral-700 transition duration-100 text-neutral-300 hover:text-neutral-100">
+      <a className="px-4 py-1 mx-2 bg-neutral-800 rounded-md hover:bg-neutral-700 transition duration-100 text-neutral-300 hover:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-blue-600">
         {title}
       </a>
     </Link>
@@ -26,11 +26,11 @@ const Navbar = ({ items }: NavbarProps) => {
   return (
     <>
       <Link href="/">
-        <a className="flex justify-center bg-neutral-900 text-neutral-400 font-medium py-2 hover:text-neutral-100 transition duration-100 border-b-2 border-b-neutral-800">
+        <a className="flex justify-center bg-neutral-900 text-neutral-400 font-medium py-2 hover:text-neutral-100 transition duration-100 border-b-2 border-b-neutral-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-600">
           Download YouTube Video
         </a>
       </Link>
-      <div className="flex justify-center bg-neutral-900 p-2">
+      <div className="flex justify-center bg-neutral-900 p-2 border-b-2 border-b-neutral-800">
         {navItemsDOM}
       </div>
     </>
