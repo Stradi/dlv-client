@@ -1,3 +1,24 @@
+import Navbar from '../components/Navbar';
+
 export default function Home() {
-  return <div>Hello, world!</div>;
+  const navItems = [
+    {
+      title: 'YouTube',
+      href: '/youtube',
+    },
+    {
+      title: 'Dailymotion',
+      href: '/dailymotion',
+    },
+    {
+      title: 'Vimeo',
+      href: '/vimeo',
+    },
+  ];
+
+  return (
+    <div>
+      <Navbar items={navItems} />
+    </div>
+  );
 }
