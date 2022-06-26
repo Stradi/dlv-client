@@ -6,7 +6,8 @@ import {
   useState,
 } from 'react';
 import cx from 'classnames';
-import { isValid } from '../utils/url';
+import { validateURL } from '../utils/url';
+import { getDownloadURL, isValidResponse } from '../utils/api';
 
 interface DownloaderProps {
   title: string;
@@ -14,29 +15,42 @@ interface DownloaderProps {
 
 const Downloader = ({ title }: DownloaderProps) => {
   const [url, setUrl] = useState('');
-  const [inputError, setInputError] = useState(false);
+  const [error, setError] = useState(null);
 
   const inputRef = useRef<HTMLInputElement>();
 
   const inputClasses = cx(
     'rounded-md w-full py-2 px-4 bg-neutral-800 focus:bg-neutral-700 placeholder-neutral-500 transition duration-100 focus:outline-none text-neutral-200 focus:placeholder-neutral-400',
     {
-      'ring-2 ring-red-600 focus:ring-2 focus:ring-red-600': inputError,
+      'ring-2 ring-red-600 focus:ring-2 focus:ring-red-600': error,
     },
     {
-      'ring-0 focus:ring-blue-600 focus:ring-2': !inputError,
+      'ring-0 focus:ring-blue-600 focus:ring-2': !error,
     }
   );
 
   const onURLChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setInputError(false);
+    setError(null);
+    setUrl(e.currentTarget.value);
   };
 
-  const onDownloadClicked = () => {
-    if (!isValid(url)) {
-      setInputError(true);
+  const onDownloadClicked = async () => {
+    const urlValidationError = validateURL(url);
+    if (urlValidationError) {
+      setError(urlValidationError);
       inputRef.current.focus();
       return;
+    }
+
+    setError(null);
+    //TODO: Block input
+    const response = await getDownloadURL(url);
+    //TODO: Unblock input
+    if (!isValidResponse(response)) {
+      setError(response.error);
+      inputRef.current.focus();
+    } else {
+      console.log(response.video);
     }
   };
 
@@ -59,6 +73,12 @@ const Downloader = ({ title }: DownloaderProps) => {
           className="w-full bg-neutral-800 p-2 rounded-md text-neutral-300 hover:text-neutral-100 hover:bg-neutral-700 transition duration-100 focus:outline-none focus:ring-2 focus:ring-blue-600"
         />
       </div>
+      {error && (
+        <p className="mt-2 py-2 px-4 bg-neutral-800 rounded-md text-white">
+          <span className="text-red-500 font-medium">ERROR: </span>
+          {error}
+        </p>
+      )}
     </div>
   );
 };
