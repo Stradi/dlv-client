@@ -11,7 +11,8 @@ const resolutionToReadable = (resolution: string): string => {
     const height = Number.parseInt(resolution.split('x')[1]);
     return `${Math.ceil(height / 10) * 10}p`;
   } else {
-    return `${resolution}k/s`;
+    const bitrate = Number.parseFloat(resolution);
+    return `${bitrate.toFixed(1)} kB/s`;
   }
 };
 
