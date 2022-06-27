@@ -14,7 +14,7 @@ const FormatDisplay = ({ formats }: FormatDisplayProps) => {
   const formatsDOM = formats.map((format) => (
     <a
       href={format.url}
-      className="bg-neutral-900 group p-2 rounded-md transition duration-100 hover:text-neutral-200"
+      className="bg-neutral-900 group p-2 rounded-md transition duration-100 hover:text-neutral-200 border-2 border-neutral-700 hover:border-blue-600"
     >
       <p className="opacity-100 group-hover:opacity-0 transition duration-100">
         {format.resolution}

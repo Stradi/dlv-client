@@ -26,7 +26,7 @@ const Downloader = ({ title, onVideoDataAcquired }: DownloaderProps) => {
   const inputRef = useRef<HTMLInputElement>();
 
   const inputClasses = cx(
-    'rounded-md w-full py-2 px-4 bg-neutral-800 focus:bg-neutral-700 placeholder-neutral-500 transition duration-100 focus:outline-none text-neutral-200 focus:placeholder-neutral-400',
+    'rounded-md w-full py-2 px-4 bg-neutral-800 border-2 border-neutral-700 hover:border-blue-600 focus:bg-neutral-700 placeholder-neutral-500 transition duration-100 focus:outline-none text-neutral-200 focus:placeholder-neutral-400',
     {
       'ring-2 ring-red-600 focus:ring-2 focus:ring-red-600': error,
     },
@@ -78,7 +78,7 @@ const Downloader = ({ title, onVideoDataAcquired }: DownloaderProps) => {
           type="button"
           onClick={onDownloadClicked}
           value="Download Now"
-          className="w-full bg-neutral-800 p-2 rounded-md text-neutral-300 hover:text-neutral-100 hover:bg-neutral-700 transition duration-100 focus:outline-none focus:ring-2 focus:ring-blue-600"
+          className="w-full bg-neutral-800 border-2 border-neutral-700 hover:border-blue-600 p-2 rounded-md text-neutral-300 hover:text-neutral-100 hover:bg-neutral-700 transition duration-100 focus:outline-none focus:ring-2 focus:ring-blue-600"
         />
       </div>
       {error && (

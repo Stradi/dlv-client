@@ -8,7 +8,7 @@ interface NavItemProps {
 const NavItem = ({ title, href }: NavItemProps) => {
   return (
     <Link href={href}>
-      <a className="px-4 py-1 mx-2 bg-neutral-800 rounded-md hover:bg-neutral-700 transition duration-100 text-neutral-300 hover:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-blue-600">
+      <a className="px-4 py-1 mx-2 bg-neutral-800 border-2 border-neutral-700 hover:border-blue-600 rounded-md hover:bg-neutral-700 transition duration-100 text-neutral-300 hover:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-blue-600">
         {title}
       </a>
     </Link>
