@@ -6,17 +6,21 @@ import {
 } from '../utils/api';
 import Image from 'next/image';
 
-interface FormatDisplayProps {
-  formats: IFormat[];
-}
-
 const resolutionToReadable = (resolution: string): string => {
-  const height = Number.parseInt(resolution.split('x')[1]);
-  return `${Math.ceil(height / 10) * 10}p`;
+  if (resolution.indexOf('x') != -1) {
+    const height = Number.parseInt(resolution.split('x')[1]);
+    return `${Math.ceil(height / 10) * 10}p`;
+  } else {
+    return `${resolution}k/s`;
+  }
 };
 
-const FormatDisplay = ({ formats }: FormatDisplayProps) => {
-  const formatsDOM = formats.map((format) => (
+interface SingleFormatProps {
+  format: IFormat;
+}
+
+const SingleFormat = ({ format }: SingleFormatProps) => {
+  return (
     <a
       href={format.url}
       className="bg-neutral-900 group p-2 rounded-md transition focus:outline-none focus:ring-2 focus:ring-blue-600 duration-100 hover:text-neutral-200 border-2 border-neutral-700 hover:border-blue-600"
@@ -30,10 +34,38 @@ const FormatDisplay = ({ formats }: FormatDisplayProps) => {
         </span>
       </div>
     </a>
+  );
+};
+
+interface FormatDisplayProps {
+  formats: IFormat[];
+}
+
+const FormatDisplay = ({ formats }: FormatDisplayProps) => {
+  const audioFormats = formats.filter((format) => !format.hasVideo);
+  const audioFormatsDOM = audioFormats.map((format) => (
+    <SingleFormat format={format} key={format.id} />
   ));
+
+  const videoFormats = formats.filter((format) => format.hasVideo);
+  const videoFormatsDOM = videoFormats.map((format) => (
+    <SingleFormat format={format} key={format.id} />
+  ));
+
   return (
-    <div className="grid gap-2 grid-cols-1 md:grid-cols-3 text-center">
-      {formatsDOM}
+    <div>
+      <div className="mb-2">
+        <h2 className="font-medium text-neutral-200">Video + Audio</h2>
+        <div className="grid gap-2 grid-cols-1 md:grid-cols-3 text-center">
+          {videoFormatsDOM}
+        </div>
+      </div>
+      <div>
+        <h2 className="font-medium text-neutral-200">Only Audio</h2>
+        <div className="grid gap-2 grid-cols-1 md:grid-cols-3 text-center">
+          {audioFormatsDOM}
+        </div>
+      </div>
     </div>
   );
 };

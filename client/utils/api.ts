@@ -23,6 +23,7 @@ export interface IFormat {
   filesize: number;
   url: string;
   resolution: string;
+  hasVideo: boolean;
 }
 
 const getVideoData = async (url: string): Promise<IVideoData | IError> => {
