@@ -1,10 +1,4 @@
-import {
-  ChangeEvent,
-  ChangeEventHandler,
-  MouseEventHandler,
-  useRef,
-  useState,
-} from 'react';
+import { ChangeEvent, useRef, useState } from 'react';
 import cx from 'classnames';
 import { validateURL } from '../utils/url';
 import {
@@ -17,16 +11,25 @@ import {
 interface DownloaderProps {
   title: string;
   onVideoDataAcquired: (data: IVideoData) => void;
+  onDownloadButtonClicked?: () => void;
 }
 
-const Downloader = ({ title, onVideoDataAcquired }: DownloaderProps) => {
+const Downloader = ({
+  title,
+  onVideoDataAcquired,
+  onDownloadButtonClicked,
+}: DownloaderProps) => {
   const [url, setUrl] = useState('');
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const inputRef = useRef<HTMLInputElement>();
 
   const inputClasses = cx(
-    'rounded-md w-full py-2 px-4 bg-neutral-800 border-2 border-neutral-700 hover:border-blue-600 focus:bg-neutral-700 placeholder-neutral-500 transition duration-100 focus:outline-none text-neutral-200 focus:placeholder-neutral-400',
+    `rounded-md w-full py-2 px-4 bg-neutral-800 border-2 border-neutral-700
+     hover:border-blue-600 focus:bg-neutral-700 placeholder-neutral-500
+     transition duration-100 focus:outline-none text-neutral-200 focus:placeholder-neutral-400
+     disabled:bg-neutral-700 disabled:text-neutral-300 disabled:hover:border-neutral-700`,
     {
       'ring-2 ring-red-600 focus:ring-2 focus:ring-red-600': error,
     },
@@ -41,6 +44,7 @@ const Downloader = ({ title, onVideoDataAcquired }: DownloaderProps) => {
   };
 
   const onDownloadClicked = async () => {
+    onDownloadButtonClicked();
     const urlValidationError = validateURL(url);
     if (urlValidationError) {
       setError(urlValidationError);
@@ -49,9 +53,8 @@ const Downloader = ({ title, onVideoDataAcquired }: DownloaderProps) => {
     }
 
     setError(null);
-    //TODO: Block input
+    setIsLoading(true);
     let response = await getVideoData(url);
-    //TODO: Unblock input
     if (!isValidResponse(response)) {
       response = response as IError;
       setError(response.error);
@@ -60,6 +63,7 @@ const Downloader = ({ title, onVideoDataAcquired }: DownloaderProps) => {
       response = response as IVideoData;
       onVideoDataAcquired(response);
     }
+    setIsLoading(false);
   };
 
   return (
@@ -71,14 +75,16 @@ const Downloader = ({ title, onVideoDataAcquired }: DownloaderProps) => {
         onChange={onURLChange}
         className={inputClasses}
         ref={inputRef}
+        disabled={isLoading}
       />
       <br></br>
       <div className="mt-2 w-1/3 mx-auto">
         <input
           type="button"
           onClick={onDownloadClicked}
-          value="Download Now"
-          className="w-full bg-neutral-800 border-2 border-neutral-700 hover:border-blue-600 p-2 rounded-md text-neutral-300 hover:text-neutral-100 hover:bg-neutral-700 transition duration-100 focus:outline-none focus:ring-2 focus:ring-blue-600"
+          value={isLoading ? 'Loading' : 'Download Now'}
+          disabled={isLoading}
+          className="w-full bg-neutral-800 border-2 border-neutral-700 hover:border-blue-600 p-2 rounded-md text-neutral-300 hover:text-neutral-100 hover:bg-neutral-700 transition duration-100 focus:outline-none focus:ring-2 focus:ring-blue-600 disabled:bg-neutral-700 disabled:hover:border-neutral-700"
         />
       </div>
       {error && (

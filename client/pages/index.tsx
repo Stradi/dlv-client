@@ -28,6 +28,7 @@ export default function Home() {
       <Downloader
         title="Download YouTube Video"
         onVideoDataAcquired={(data) => setVideoData(data)}
+        onDownloadButtonClicked={() => setVideoData(null)}
       />
       {videoData && (
         <>
