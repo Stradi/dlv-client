@@ -33,7 +33,7 @@ export default function Home() {
     <div>
       <Navbar items={navItems} />
       <Downloader
-        title="Download YouTube Video"
+        title="YouTube Downloader"
         onVideoDataAcquired={(data) => setVideoData(data)}
         onDownloadButtonClicked={() => setVideoData(null)}
       />

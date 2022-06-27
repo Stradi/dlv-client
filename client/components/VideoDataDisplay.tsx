@@ -1,14 +1,14 @@
+import Image from "next/image";
 import {
   getLargestThumbnailURI,
   IFormat,
   IThumbnail,
   IVideoData,
-} from '../utils/api';
-import Image from 'next/image';
+} from "../utils/api";
 
 const resolutionToReadable = (resolution: string): string => {
-  if (resolution.indexOf('x') != -1) {
-    const height = Number.parseInt(resolution.split('x')[1]);
+  if (resolution.indexOf("x") != -1) {
+    const height = Number.parseInt(resolution.split("x")[1]);
     return `${Math.ceil(height / 10) * 10}p`;
   } else {
     const bitrate = Number.parseFloat(resolution);
@@ -79,7 +79,7 @@ interface VideoDataDisplayProps {
 const VideoDataDisplay = ({ data }: VideoDataDisplayProps) => {
   const thumbnail: IThumbnail = getLargestThumbnailURI(data);
   return (
-    <div className="bg-neutral-800 py-2 px-3 rounded-md w-1/2 mx-auto text-neutral-300">
+    <div className="bg-neutral-800 py-2 px-3 rounded-md w-11/12 md:w-1/2 mx-auto text-neutral-300">
       <h2 className="text-neutral-200 font-medium">{data.title}</h2>
       <div className="lg:flex lg:justify-between mt-2">
         <div className="w-full border-2 border-neutral-700 hover:border-blue-600 rounded-md">
