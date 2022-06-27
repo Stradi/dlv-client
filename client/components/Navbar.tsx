@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 interface NavItemProps {
   title: string;
@@ -26,7 +26,7 @@ const Navbar = ({ items }: NavbarProps) => {
   return (
     <>
       <Link href="/">
-        <a className="flex justify-center bg-neutral-900 text-neutral-400 font-medium py-2 hover:text-neutral-100 transition duration-100 border-b-2 border-b-neutral-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-600">
+        <a className="flex justify-center bg-black text-neutral-400 font-medium py-2 hover:text-neutral-100 transition duration-100 border-b-2 border-b-neutral-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-600">
           Download YouTube Video
         </a>
       </Link>

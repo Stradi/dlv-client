@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import Downloader from "../components/Downloader";
+import Footer from "../components/Footer";
 import Markdown from "../components/MarkdownRenderer";
 import Navbar from "../components/Navbar";
 import { Dailymotion, Vimeo, YouTube } from "../components/SpecialText";
@@ -85,6 +86,7 @@ export default function Home() {
         </p>
         <Image src={imgTutorial3} className="rounded-md" />
       </Markdown>
+      <Footer />
     </div>
   );
 }
