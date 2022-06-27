@@ -1,4 +1,31 @@
-const getDownloadURL = async (url: string) => {
+export interface IVideoData {
+  id: string;
+  title: string;
+  thumbnails: IThumbnail[];
+  formats: IFormat[];
+  duration: string;
+}
+
+export interface IError {
+  error: string;
+}
+
+export interface IThumbnail {
+  id: string;
+  width: number;
+  height: number;
+  resolution: string;
+  url: string;
+}
+
+export interface IFormat {
+  id: string;
+  filesize: number;
+  url: string;
+  resolution: string;
+}
+
+const getVideoData = async (url: string): Promise<IVideoData | IError> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URI}/api/dl`, {
     method: 'POST',
     body: JSON.stringify({
@@ -10,11 +37,30 @@ const getDownloadURL = async (url: string) => {
   });
 
   const jsonResponse = await response.json();
-  return jsonResponse;
+  if (!isValidResponse(jsonResponse)) {
+    return jsonResponse as IError;
+  }
+
+  return jsonResponse.video as IVideoData;
 };
 
 const isValidResponse = (body: any): boolean => {
   return !body.error;
 };
 
-export { getDownloadURL, isValidResponse };
+const getLargestThumbnailURI = (videoData: IVideoData): IThumbnail => {
+  let largestSize = 0;
+  let largestThumbnail = <IThumbnail>{};
+
+  videoData.thumbnails.forEach((thumbnail) => {
+    const size = thumbnail.width * thumbnail.height;
+    if (size > largestSize) {
+      largestSize = size;
+      largestThumbnail = thumbnail;
+    }
+  });
+
+  return largestThumbnail;
+};
+
+export { getVideoData, isValidResponse, getLargestThumbnailURI };

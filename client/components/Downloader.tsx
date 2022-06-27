@@ -7,13 +7,19 @@ import {
 } from 'react';
 import cx from 'classnames';
 import { validateURL } from '../utils/url';
-import { getDownloadURL, isValidResponse } from '../utils/api';
+import {
+  getVideoData,
+  IError,
+  isValidResponse,
+  IVideoData,
+} from '../utils/api';
 
 interface DownloaderProps {
   title: string;
+  onVideoDataAcquired: (data: IVideoData) => void;
 }
 
-const Downloader = ({ title }: DownloaderProps) => {
+const Downloader = ({ title, onVideoDataAcquired }: DownloaderProps) => {
   const [url, setUrl] = useState('');
   const [error, setError] = useState(null);
 
@@ -44,13 +50,15 @@ const Downloader = ({ title }: DownloaderProps) => {
 
     setError(null);
     //TODO: Block input
-    const response = await getDownloadURL(url);
+    let response = await getVideoData(url);
     //TODO: Unblock input
     if (!isValidResponse(response)) {
+      response = response as IError;
       setError(response.error);
       inputRef.current.focus();
     } else {
-      console.log(response.video);
+      response = response as IVideoData;
+      onVideoDataAcquired(response);
     }
   };
 
