@@ -1,25 +1,30 @@
-import Navbar from '../components/Navbar';
-import Downloader from '../components/Downloader';
-import { useState } from 'react';
-import VideoDataDisplay from '../components/VideoDataDisplay';
-import Markdown from '../components/MarkdownRenderer';
-import { Dailymotion, Vimeo, YouTube } from '../components/SpecialText';
+import Image from "next/image";
+import { useState } from "react";
+import Downloader from "../components/Downloader";
+import Markdown from "../components/MarkdownRenderer";
+import Navbar from "../components/Navbar";
+import { Dailymotion, Vimeo, YouTube } from "../components/SpecialText";
+import VideoDataDisplay from "../components/VideoDataDisplay";
+
+import imgTutorial1 from "../public/assets/Tutorial_1.png";
+import imgTutorial2 from "../public/assets/Tutorial_2.png";
+import imgTutorial3 from "../public/assets/Tutorial_3.png";
 
 export default function Home() {
   const [videoData, setVideoData] = useState(null);
 
   const navItems = [
     {
-      title: 'YouTube',
-      href: '/youtube',
+      title: "YouTube",
+      href: "/youtube",
     },
     {
-      title: 'Dailymotion',
-      href: '/dailymotion',
+      title: "Dailymotion",
+      href: "/dailymotion",
     },
     {
-      title: 'Vimeo',
-      href: '/vimeo',
+      title: "Vimeo",
+      href: "/vimeo",
     },
   ];
 
@@ -68,10 +73,17 @@ export default function Home() {
           Just paste the URL of the video in the search box up there and click
           Download now.
         </p>
+        <Image src={imgTutorial1} className="rounded-md" />
         <p>After some moment, you will be greeted with a panel like below.</p>
+        <Image src={imgTutorial2} className="rounded-md" />
         <p>
           In this panel, you are able to download the Video+Audio or Only Audio.
         </p>
+        <p>
+          Click the desired option and let us do the magic and start the
+          download.
+        </p>
+        <Image src={imgTutorial3} className="rounded-md" />
       </Markdown>
     </div>
   );
