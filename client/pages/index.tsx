@@ -1,9 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import Downloader from "../components/Downloader";
-import Footer from "../components/Footer";
 import Markdown from "../components/MarkdownRenderer";
-import Navbar from "../components/Navbar";
 import { Dailymotion, Vimeo, YouTube } from "../components/SpecialText";
 import VideoDataDisplay from "../components/VideoDataDisplay";
 
@@ -14,24 +12,8 @@ import imgTutorial3 from "../public/assets/Tutorial_3.png";
 export default function Home() {
   const [videoData, setVideoData] = useState(null);
 
-  const navItems = [
-    {
-      title: "YouTube",
-      href: "/youtube",
-    },
-    {
-      title: "Dailymotion",
-      href: "/dailymotion",
-    },
-    {
-      title: "Vimeo",
-      href: "/vimeo",
-    },
-  ];
-
   return (
     <div>
-      <Navbar items={navItems} />
       <Downloader
         title="YouTube Downloader"
         onVideoDataAcquired={(data) => setVideoData(data)}
@@ -86,7 +68,6 @@ export default function Home() {
         </p>
         <Image src={imgTutorial3} className="rounded-md" />
       </Markdown>
-      <Footer />
     </div>
   );
 }
