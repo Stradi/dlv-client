@@ -11,6 +11,9 @@ import VideoDataDisplay from "../components/VideoDataDisplay";
 import imgTutorial1 from "../public/assets/Tutorial_1.png";
 import imgTutorial2 from "../public/assets/Tutorial_2.png";
 import imgTutorial3 from "../public/assets/Tutorial_3.png";
+import imgTutorial4 from "../public/assets/Tutorial_4.png";
+import imgTutorial5 from "../public/assets/Tutorial_5.png";
+
 import {
   providerToBrandName,
   providerToSpecialTextComponent,
@@ -85,6 +88,14 @@ const ProviderPage = ({ provider }: ProviderPageProps) => {
             download.
           </p>
           <Image src={imgTutorial3} className="rounded-md" />
+          <p>
+            Sometimes, system opens a new tab containing the resource instead of
+            directly downloading the resource. If this happens, click three dots
+            on bottom left.
+          </p>
+          <Image src={imgTutorial4} className="rounded-md" />
+          <p>Then click the Download button.</p>
+          <Image src={imgTutorial5} className="rounded-md" />
         </Markdown>
       </div>
     </>
