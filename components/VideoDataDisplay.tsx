@@ -42,9 +42,15 @@ const SingleFormat = ({ format }: SingleFormatProps) => {
 
 interface FormatDisplayProps {
   formats: IFormat[];
+  showAudio: boolean;
+  showVideoAudio: boolean;
 }
 
-const FormatDisplay = ({ formats }: FormatDisplayProps) => {
+const FormatDisplay = ({
+  formats,
+  showAudio,
+  showVideoAudio,
+}: FormatDisplayProps) => {
   const audioFormats = formats.filter((format) => !format.hasVideo);
   const audioFormatsDOM = audioFormats.map((format) => (
     <SingleFormat format={format} key={format.id} />
@@ -57,27 +63,37 @@ const FormatDisplay = ({ formats }: FormatDisplayProps) => {
 
   return (
     <div>
-      <div className="mb-2">
-        <h2 className="font-medium text-neutral-200">Video + Audio</h2>
-        <div className="grid gap-2 grid-cols-1 md:grid-cols-3 text-center">
-          {videoFormatsDOM}
+      {showVideoAudio && (
+        <div className="mb-2">
+          <h2 className="font-medium text-neutral-200">Video + Audio</h2>
+          <div className="grid gap-2 grid-cols-1 md:grid-cols-3 text-center">
+            {videoFormatsDOM}
+          </div>
         </div>
-      </div>
-      <div>
-        <h2 className="font-medium text-neutral-200">Only Audio</h2>
-        <div className="grid gap-2 grid-cols-1 md:grid-cols-3 text-center">
-          {audioFormatsDOM}
+      )}
+      {showAudio && (
+        <div>
+          <h2 className="font-medium text-neutral-200">Only Audio</h2>
+          <div className="grid gap-2 grid-cols-1 md:grid-cols-3 text-center">
+            {audioFormatsDOM}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
 
 interface VideoDataDisplayProps {
   data: IVideoData;
+  showAudio?: boolean;
+  showVideoAudio?: boolean;
 }
 
-const VideoDataDisplay = ({ data }: VideoDataDisplayProps) => {
+const VideoDataDisplay = ({
+  data,
+  showAudio = true,
+  showVideoAudio = true,
+}: VideoDataDisplayProps) => {
   const thumbnail: IThumbnail = getLargestThumbnailURI(data);
   return (
     <div className="bg-neutral-800 py-2 px-3 rounded-md w-11/12 md:w-1/2 mx-auto text-neutral-300">
@@ -93,7 +109,11 @@ const VideoDataDisplay = ({ data }: VideoDataDisplayProps) => {
           />
         </div>
         <div className="w-full lg:pl-4 mt-2 lg:mt-0">
-          <FormatDisplay formats={data.formats} />
+          <FormatDisplay
+            formats={data.formats}
+            showAudio={showAudio}
+            showVideoAudio={showVideoAudio}
+          />
         </div>
       </div>
     </div>
