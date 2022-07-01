@@ -54,7 +54,7 @@ const getLargestThumbnailURI = (videoData: IVideoData): IThumbnail => {
   let largestThumbnail = <IThumbnail>{};
 
   videoData.thumbnails.forEach((thumbnail) => {
-    const size = (thumbnail.width || 1) * thumbnail.height;
+    const size = (thumbnail.width || 1) * (thumbnail.height || 1);
     if (size > largestSize) {
       largestSize = size;
       largestThumbnail = thumbnail;
@@ -62,8 +62,18 @@ const getLargestThumbnailURI = (videoData: IVideoData): IThumbnail => {
   });
 
   if (!largestThumbnail.width) {
-    largestThumbnail.width = largestThumbnail.height * 1.6;
+    if (!largestThumbnail.height) {
+      largestThumbnail.width = 160 * 3;
+      largestThumbnail.height = 90 * 3;
+    } else {
+      largestThumbnail.width = largestThumbnail.height * 1.78;
+    }
   }
+
+  if (!largestThumbnail.height) {
+    largestThumbnail.height = largestThumbnail.width / 1.78;
+  }
+
   return largestThumbnail;
 };
 
