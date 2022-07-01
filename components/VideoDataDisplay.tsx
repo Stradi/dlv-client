@@ -1,14 +1,14 @@
-import Image from "next/image";
+import Image from 'next/image';
 import {
   getLargestThumbnailURI,
   IFormat,
   IThumbnail,
   IVideoData,
-} from "../utils/api";
+} from '../utils/api';
 
 const resolutionToReadable = (resolution: string): string => {
-  if (resolution.indexOf("x") != -1) {
-    const height = Number.parseInt(resolution.split("x")[1]);
+  if (resolution.indexOf('x') != -1) {
+    const height = Number.parseInt(resolution.split('x')[1]);
     return `${Math.ceil(height / 10) * 10}p`;
   } else {
     const bitrate = Number.parseFloat(resolution);
@@ -26,6 +26,7 @@ const SingleFormat = ({ format }: SingleFormatProps) => {
       href={format.url}
       className="bg-neutral-900 group p-2 rounded-md transition focus:outline-none focus:ring-2 focus:ring-blue-600 duration-100 hover:text-neutral-200 border-2 border-neutral-700 hover:border-blue-600"
       target="_blank"
+      rel="noreferrer"
     >
       <p className="opacity-100 group-hover:opacity-0 transition duration-100">
         {resolutionToReadable(format.resolution)}
