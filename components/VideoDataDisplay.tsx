@@ -6,6 +6,8 @@ import {
   IVideoData,
 } from '../utils/api';
 
+import * as gtag from '../utils/gtag';
+
 const resolutionToReadable = (resolution: string): string => {
   if (resolution.indexOf('x') != -1) {
     const height = Number.parseInt(resolution.split('x')[1]);
@@ -18,15 +20,26 @@ const resolutionToReadable = (resolution: string): string => {
 
 interface SingleFormatProps {
   format: IFormat;
+  title: string;
 }
 
-const SingleFormat = ({ format }: SingleFormatProps) => {
+const SingleFormat = ({ format, title }: SingleFormatProps) => {
+  const onDownload = () => {
+    gtag.event({
+      action: 'download_resource',
+      category: 'engagement',
+      label: `${title} + ${format.resolution}`,
+      value: 2,
+    });
+  };
+
   return (
     <a
       href={format.url}
       className="bg-neutral-900 group p-2 rounded-md transition focus:outline-none focus:ring-2 focus:ring-blue-600 duration-100 hover:text-neutral-200 border-2 border-neutral-700 hover:border-blue-600"
       target="_blank"
       rel="noreferrer"
+      onClick={(e) => onDownload()}
     >
       <p className="opacity-100 group-hover:opacity-0 transition duration-100">
         {resolutionToReadable(format.resolution)}
@@ -44,21 +57,23 @@ interface FormatDisplayProps {
   formats: IFormat[];
   showAudio: boolean;
   showVideoAudio: boolean;
+  title: string;
 }
 
 const FormatDisplay = ({
   formats,
   showAudio,
   showVideoAudio,
+  title,
 }: FormatDisplayProps) => {
   const audioFormats = formats.filter((format) => !format.hasVideo);
   const audioFormatsDOM = audioFormats.map((format) => (
-    <SingleFormat format={format} key={format.id} />
+    <SingleFormat format={format} title={title} key={format.id} />
   ));
 
   const videoFormats = formats.filter((format) => format.hasVideo);
   const videoFormatsDOM = videoFormats.map((format) => (
-    <SingleFormat format={format} key={format.id} />
+    <SingleFormat format={format} title={title} key={format.id} />
   ));
 
   return (
@@ -113,6 +128,7 @@ const VideoDataDisplay = ({
             formats={data.formats}
             showAudio={showAudio}
             showVideoAudio={showVideoAudio}
+            title={data.title}
           />
         </div>
       </div>

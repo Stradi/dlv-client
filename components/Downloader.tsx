@@ -8,6 +8,8 @@ import {
 } from '../utils/api';
 import { validateURL } from '../utils/url';
 
+import * as gtag from '../utils/gtag';
+
 interface DownloaderProps {
   title: string;
   onVideoDataAcquired: (data: IVideoData) => void;
@@ -62,6 +64,13 @@ const Downloader = ({
     } else {
       response = response as IVideoData;
       onVideoDataAcquired(response);
+
+      gtag.event({
+        action: 'fetch_video_info',
+        category: 'engagement',
+        label: response.title,
+        value: 1,
+      });
     }
     setIsLoading(false);
   };
