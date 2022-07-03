@@ -12,6 +12,8 @@ import imgTutorial2 from './../public/assets/Tutorial_2.png';
 import imgTutorial3 from './../public/assets/Tutorial_3.png';
 import imgTutorial4 from './../public/assets/Tutorial_4.png';
 import imgTutorial5 from './../public/assets/Tutorial_5.png';
+import Link from 'next/link';
+import DownloadersTable from './DownloadersTable';
 
 interface BaseDownloaderPageProps {
   provider: string;
@@ -39,7 +41,10 @@ const BaseDownloaderPage = ({ provider, type }: BaseDownloaderPageProps) => {
             <VideoDataDisplay data={videoData} />
           </>
         )}
-        <br></br>
+        <MarkdownRenderer>
+          <h3 className="text-center">or try our other downloaders</h3>
+          <DownloadersTable />
+        </MarkdownRenderer>
         <MarkdownRenderer>
           <h2>
             Download {provider} {type}
