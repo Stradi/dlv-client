@@ -1,5 +1,5 @@
-import ProviderPage from "./[provider]";
+import BaseDownloaderPage from '../components/BaseDownloaderPage';
 
 export default function Home() {
-  return <ProviderPage provider="YouTube" />;
+  return <BaseDownloaderPage provider="YouTube" type="Video" />;
 }
