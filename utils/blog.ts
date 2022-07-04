@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync } from 'fs';
+import { readdirSync, readFileSync, existsSync } from 'fs';
 import { join } from 'path';
 
 import matter from 'gray-matter';
@@ -6,7 +6,10 @@ import matter from 'gray-matter';
 const postsDirectory = join(process.cwd(), '_posts');
 
 const getPostSlugs = () => {
-  return readdirSync(postsDirectory);
+  if (existsSync(postsDirectory)) {
+    return readdirSync(postsDirectory);
+  }
+  return [];
 };
 
 const getPostBySlug = (slug: string, fields: string[] = []) => {
