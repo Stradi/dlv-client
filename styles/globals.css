@@ -6,31 +6,35 @@ body {
   @apply bg-neutral-900;
 }
 
-.prose :where(a):not(:where([class~='not-prose'] *)) {
+.prose :where(a):not(:where([class~="not-prose"] *)) {
   @apply text-neutral-200 hover:text-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600 rounded-md p-0.5 transition duration-100;
 }
 
-.prose :where(ul > li):not(:where([class~='not-prose'] *))::marker {
+.prose :where(ul > li):not(:where([class~="not-prose"] *))::marker {
   @apply text-blue-400;
 }
 
-.prose :where(strong):not(:where([class~='not-prose'] *)) {
+.prose :where(strong):not(:where([class~="not-prose"] *)) {
   @apply text-neutral-100;
 }
 
 .prose-headings\:text-neutral-200
-  :is(:where(h1, h2, h3, h4, th):not(:where([class~='not-prose'] *))) {
+  :is(:where(h1, h2, h3, h4, th):not(:where([class~="not-prose"] *))) {
   @apply text-neutral-100;
 }
 
-.prose :where(blockquote):not(:where([class~='not-prose'] *)) {
+.prose :where(blockquote):not(:where([class~="not-prose"] *)) {
   @apply border-blue-500 text-neutral-200;
 }
 
-.prose :where(ol > li):not(:where([class~='not-prose'] *))::marker {
+.prose :where(ol > li):not(:where([class~="not-prose"] *))::marker {
   @apply text-blue-400 font-bold;
 }
 
 .prose h1 {
   @apply text-center font-bold;
+}
+
+.prose :where(img):not(:where([class~="not-prose"] *)) {
+  @apply w-full sm:w-2/3 mx-auto;
 }
