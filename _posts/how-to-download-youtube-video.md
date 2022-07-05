@@ -2,7 +2,7 @@
 title: "How to Download YouTube Video"
 date: "05.07.2022"
 slug: "how-to-download-youtube-video"
-excerpt: ""
+excerpt: "Downloading YouTube videos is really easy using our system. In this in-depth tutorial, we are explaining how to download YouTube video using our system."
 ogImage: ""
 coverImage: ""
 ---
