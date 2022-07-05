@@ -1,10 +1,10 @@
 ---
-title: 'How to Download YouTube Video'
-date: '05.07.2022'
-slug: 'how-to-download-youtube-video'
-excerpt: ''
-ogImage: ''
-coverImage: ''
+title: "How to Download YouTube Video"
+date: "05.07.2022"
+slug: "how-to-download-youtube-video"
+excerpt: ""
+ogImage: ""
+coverImage: ""
 ---
 
 # How to Download YouTube Video
@@ -32,9 +32,19 @@ In Android devices getting video URL is can be done in two ways. One is using Yo
 Getting video url in YouTube application is fairly easy. Below, you can see the steps must be taken to get URL in YouTube application.
 
 1. Open **YouTube** application
+   ![Open YouTube](../assets/blog/how-to-download-youtube-video/open-youtube.png "Open YouTube")
+
 2. Find the video you want to download and open it
+   ![Find the video](../assets/blog/how-to-download-youtube-video/find-the-video.png "Find the video")
+
 3. Click share button below the video title
+   ![Click share button](../assets/blog/how-to-download-youtube-video/click-share.png "Click share button")
+
 4. Click '**Copy link**' button
+   ![Click copy link button](../assets/blog/how-to-download-youtube-video/click-copy-link.png "Click copy link button")
+
+5. The URL successfully copied to device
+   ![Successfully copied](../assets/blog/how-to-download-youtube-video/copied.png "Successfully copied")
 
 And it's done. After you complete all the steps above, the URL should be copied in your device.
 
@@ -58,9 +68,17 @@ iPhone is basically Android with some differences. So steps are basically the sa
 
 Right now, you are viewing this page in a browser. If you are on computer that's great. Because it is very simple to find URL in Windows.
 
-1. Go to [YouTube](youtube.com)
-2. Find the video you want to download
-3. Select the text in top of the screen and copy
+1. Open the browser
+   ![Open browser](../assets/blog/how-to-download-youtube-video/desktop-open-browser.png "Open browser")
+
+2. Go to [YouTube](youtube.com)
+   ![Go to YouTube.com](../assets/blog/how-to-download-youtube-video/desktop-search-youtube.png "Search YouTube")
+
+3. Find the video you want to download
+   ![Click the video](../assets/blog/how-to-download-youtube-video/desktop-click-video.png "Find the video")
+
+4. Select the text in top of the screen and copy
+   ![Click copy](../assets/blog/how-to-download-youtube-video/desktop-click-copy.png "Click copy")
 
 This is basically the same for every browser. So you can use any browser you like, it doesn't matter at all.
 
@@ -81,14 +99,19 @@ First step is going to [DownloadYouTubeVideo.com](download-youtube-video.com). U
 After opening the page, you will be greeted with a input box and a button called '**Download Now**'.
 
 Click the input that says '**Paste your video link here**' and paste the URL you copied in there.
+![Paste the URL](../assets/Tutorial_1.png "Paste the URL")
 
 After that, click '**Download Now**' button and wait for a bit to let us do the magic.
 
 After some time, you will be greeted with a panel. In that panel you should see the thumbnail of the video and **download buttons on the right**.
+![Download panel](../assets/Tutorial_2.png "Download panel")
 
 Those buttons are basically **quality settings** for video. Clicking a button mostly will start the download. But some systems doesn't do that, instead they open a new browser tab and starts the video.
+![Started download](../assets/Tutorial_3.png "Started download")
 
 But don't worry because in that new page, clicking the **three dot button** on the bottom right of the video and click '**Download**' button, that will start the download operation.
+![Click the three dot button](../assets/Tutorial_4.png "Click the three dot button")
+![Click download button](../assets/Tutorial_5.png "Click download button")
 
 After downloading you can view the video in your downloads directory. This directory is generally:
 
