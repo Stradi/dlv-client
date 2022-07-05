@@ -88,7 +88,6 @@ const Downloader = ({
           disabled={isLoading}
         />
       </div>
-      <br></br>
       <div className="mt-2 w-11/12 sm:w-1/3 md:w-1/6 mx-auto">
         <input
           type="button"

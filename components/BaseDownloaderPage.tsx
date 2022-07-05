@@ -1,40 +1,37 @@
-import { GetStaticPaths, GetStaticProps } from "next";
-import { NextSeo } from "next-seo";
-import Image from "next/image";
-import { useState } from "react";
+import { NextSeo } from 'next-seo';
+import Image from 'next/image';
+import { useState } from 'react';
+import Downloader from './Downloader';
+import MarkdownRenderer from './MarkdownRenderer';
+import { Dailymotion, Vimeo, YouTube } from './SpecialText';
+import VideoDataDisplay from './VideoDataDisplay';
+import { providerToSpecialTextComponent } from './../utils/provider';
 
-import Downloader from "../components/Downloader";
-import Markdown from "../components/MarkdownRenderer";
-import { Dailymotion, Vimeo, YouTube } from "../components/SpecialText";
-import VideoDataDisplay from "../components/VideoDataDisplay";
+import imgTutorial1 from './../public/assets/Tutorial_1.png';
+import imgTutorial2 from './../public/assets/Tutorial_2.png';
+import imgTutorial3 from './../public/assets/Tutorial_3.png';
+import imgTutorial4 from './../public/assets/Tutorial_4.png';
+import imgTutorial5 from './../public/assets/Tutorial_5.png';
+import Link from 'next/link';
+import DownloadersTable from './DownloadersTable';
 
-import imgTutorial1 from "../public/assets/Tutorial_1.png";
-import imgTutorial2 from "../public/assets/Tutorial_2.png";
-import imgTutorial3 from "../public/assets/Tutorial_3.png";
-import imgTutorial4 from "../public/assets/Tutorial_4.png";
-import imgTutorial5 from "../public/assets/Tutorial_5.png";
-
-import {
-  providerToBrandName,
-  providerToSpecialTextComponent,
-} from "../utils/provider";
-
-interface ProviderPageProps {
+interface BaseDownloaderPageProps {
   provider: string;
+  type: string;
 }
 
-const ProviderPage = ({ provider }: ProviderPageProps) => {
+const BaseDownloaderPage = ({ provider, type }: BaseDownloaderPageProps) => {
   const [videoData, setVideoData] = useState(null);
 
   return (
     <>
       <NextSeo
-        title={`Download ${provider} Video`}
-        description={`Free downloader for ${provider} and more. Extract audio from a ${provider} video or download full video for free.`}
+        title={`Download ${provider} ${type}`}
+        description={`Free downloader for ${provider} and more. Convert ${provider} videos to ${type} for free.`}
       />
       <div>
         <Downloader
-          title={`${provider} Downloader`}
+          title={`${provider} to ${type} Downloader`}
           onVideoDataAcquired={(data) => setVideoData(data)}
           onDownloadButtonClicked={() => setVideoData(null)}
         />
@@ -44,16 +41,21 @@ const ProviderPage = ({ provider }: ProviderPageProps) => {
             <VideoDataDisplay data={videoData} />
           </>
         )}
-        <br></br>
-        <Markdown>
-          <h2>Download {provider} Video</h2>
+        <MarkdownRenderer>
+          <h3 className="text-center">or try our other downloaders</h3>
+          <DownloadersTable />
+        </MarkdownRenderer>
+        <MarkdownRenderer>
+          <h2>
+            Download {provider} {type}
+          </h2>
           <p>
             Have you ever wanted to download a funny
             {providerToSpecialTextComponent(provider)}
-            video to send your friend or family.
+            {type} to send your friend or family.
           </p>
           <p>
-            Have you ever wanted to download a sound from{" "}
+            Have you ever wanted to download a {type} from{' '}
             {providerToSpecialTextComponent(provider)}.
           </p>
           <p>You've come to the right place.</p>
@@ -62,16 +64,19 @@ const ProviderPage = ({ provider }: ProviderPageProps) => {
             <YouTube />,<Dailymotion />
             or
             <Vimeo />
-            videos.
+            videos and audios.
           </p>
           <p>
-            We make downloading videos from
+            We make downloading {type} from
             {providerToSpecialTextComponent(provider)}
             easy... It's all two clicks away.
           </p>
           <p>The best part is our service is 100% free.</p>
           <h2>How to use?</h2>
-          <p>Using our downloader is fully free and easy.</p>
+          <p>
+            Using our {provider} {type.toLowerCase()} downloader is fully free
+            and easy.
+          </p>
           <p>
             Just paste the URL of the video in the search box up there and click
             Download now.
@@ -96,30 +101,10 @@ const ProviderPage = ({ provider }: ProviderPageProps) => {
           <Image src={imgTutorial4} className="rounded-md" />
           <p>Then click the Download button.</p>
           <Image src={imgTutorial5} className="rounded-md" />
-        </Markdown>
+        </MarkdownRenderer>
       </div>
     </>
   );
 };
 
-export const getStaticPaths: GetStaticPaths = () => {
-  const providers = ["YouTube", "Dailymotion", "Vimeo"];
-  const paths = providers.map((provider) => ({
-    params: { provider: provider.toLowerCase() },
-  }));
-
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
-export const getStaticProps: GetStaticProps = ({ params }) => {
-  return {
-    props: {
-      provider: providerToBrandName(params.provider as string),
-    },
-  };
-};
-
-export default ProviderPage;
+export default BaseDownloaderPage;
