@@ -1,19 +1,19 @@
-import { NextSeo } from 'next-seo';
-import Image from 'next/image';
-import { useState } from 'react';
-import Downloader from './Downloader';
-import MarkdownRenderer from './MarkdownRenderer';
-import { Dailymotion, Vimeo, YouTube } from './SpecialText';
-import VideoDataDisplay from './VideoDataDisplay';
-import { providerToSpecialTextComponent } from './../utils/provider';
+import { NextSeo } from "next-seo";
+import Image from "next/image";
+import { useState } from "react";
+import { providerToSpecialTextComponent } from "./../utils/provider";
+import Downloader from "./Downloader";
+import MarkdownRenderer from "./MarkdownRenderer";
+import { Dailymotion, Vimeo, YouTube } from "./SpecialText";
+import VideoDataDisplay from "./VideoDataDisplay";
 
-import imgTutorial1 from './../public/assets/Tutorial_1.png';
-import imgTutorial2 from './../public/assets/Tutorial_2.png';
-import imgTutorial3 from './../public/assets/Tutorial_3.png';
-import imgTutorial4 from './../public/assets/Tutorial_4.png';
-import imgTutorial5 from './../public/assets/Tutorial_5.png';
-import Link from 'next/link';
-import DownloadersTable from './DownloadersTable';
+import Link from "next/link";
+import imgTutorial1 from "./../public/assets/Tutorial_1.png";
+import imgTutorial2 from "./../public/assets/Tutorial_2.png";
+import imgTutorial3 from "./../public/assets/Tutorial_3.png";
+import imgTutorial4 from "./../public/assets/Tutorial_4.png";
+import imgTutorial5 from "./../public/assets/Tutorial_5.png";
+import DownloadersTable from "./DownloadersTable";
 
 interface BaseDownloaderPageProps {
   provider: string;
@@ -55,7 +55,7 @@ const BaseDownloaderPage = ({ provider, type }: BaseDownloaderPageProps) => {
             {type} to send your friend or family.
           </p>
           <p>
-            Have you ever wanted to download a {type} from{' '}
+            Have you ever wanted to download a {type} from{" "}
             {providerToSpecialTextComponent(provider)}.
           </p>
           <p>You've come to the right place.</p>
@@ -73,6 +73,13 @@ const BaseDownloaderPage = ({ provider, type }: BaseDownloaderPageProps) => {
           </p>
           <p>The best part is our service is 100% free.</p>
           <h2>How to use?</h2>
+          <p>
+            If you want more in-depth tutorial about downloading YouTube videos,
+            see{" "}
+            <Link href="/blog/how-to-download-youtube-video">
+              <a>this tutorial.</a>
+            </Link>
+          </p>
           <p>
             Using our {provider} {type.toLowerCase()} downloader is fully free
             and easy.
