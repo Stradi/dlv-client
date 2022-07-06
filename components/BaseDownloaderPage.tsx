@@ -81,6 +81,13 @@ const BaseDownloaderPage = ({ provider, type }: BaseDownloaderPageProps) => {
             </Link>
           </p>
           <p>
+            If you are using iPhone and want an in-depth tutorial about download
+            YouTube videos to iPhone, see{" "}
+            <Link href="/blog/youtube-downloader-for-iphone">
+              <a>this tutorial.</a>
+            </Link>
+          </p>
+          <p>
             Using our {provider} {type.toLowerCase()} downloader is fully free
             and easy.
           </p>
