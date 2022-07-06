@@ -27,7 +27,7 @@ Every page on the web has a URL. This url can be found very easily by using brow
 
 In Android devices getting video URL is can be done in two ways. One is using YouTube application and other is using a browser.
 
-#### Using YouTube Application
+#### Using YouTube Application {#using-youtube-application}
 
 Getting video url in YouTube application is fairly easy. Below, you can see the steps must be taken to get URL in YouTube application.
 
@@ -48,7 +48,7 @@ Getting video url in YouTube application is fairly easy. Below, you can see the 
 
 And it's done. After you complete all the steps above, the URL should be copied in your device.
 
-#### Using a Browser
+#### Using a Browser {#using-a-browser}
 
 There are so many browsers to use in a Android device. But the steps are always the same in all browsers.
 
@@ -62,7 +62,9 @@ This is basically text selecting and copying. After you complete these steps, th
 
 ### How to find URL in iPhone
 
-iPhone is basically Android with some differences. So steps are basically the same. If you have YouTube application installed, see the [Using YouTube Application](#using-youtube-application). If you are using a browser such as Safari to download, see the [Using a Browser](#using-a-browser).
+iPhone is basically Android with some differences. So steps are basically the same. If you have YouTube application installed, see the [Using YouTube Application](#user-content-using-youtube-application). If you are using a browser such as Safari to download, see the [Using a Browser](#user-content-using-a-browser).
+
+If you want more in-depth tutorial about downloading videos for iPhone, see [this tutorial](https://download-youtube-video.com/blog/youtube-downloader-for-iphone).
 
 ### How to find URL in Windows
 
