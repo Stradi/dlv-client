@@ -9,7 +9,7 @@ coverImage: ""
 
 # YouTube Downloader for iPhone
 
-Downloading YouTube videos should be easy, right? But it is not. YouTube is evolving constantly and their systems change almost 6-7 times a day. Well, downloading videos from YouTube also changes. To solve this problem, we created [downloadyoutubevideo.com](DownloadYouTubeVideo.com).
+Downloading YouTube videos should be easy, right? But it is not. YouTube is evolving constantly and their systems change almost 6-7 times a day. Well, downloading videos from YouTube also changes. To solve this problem, we created [DownloadYouTubeVideo](https://download-youtube-video.com).
 
 Using our system, you will always download YouTube videos to your iPhone. The great part of using our system is that our system is full free and it's going to be free forever.
 
@@ -51,7 +51,7 @@ Obtaining URL in Safari is fairly easy too.
 1. Open **Safari**
    ![Open Safari](../assets/blog/youtube-downloader-for-iphone/open-safari.png "Open Safari")
 
-2. Go to [youtube.com](YouTube.com)
+2. Go to [YouTube](https://youtube.com)
    ![Go to YouTube](../assets/blog/youtube-downloader-for-iphone/go-to-youtube.png "Go to YouTube")
 
 3. Find the video you want to download
@@ -66,7 +66,7 @@ Now let's see how to download YouTube video to iPhone.
 
 ## Downloading YouTube Video
 
-First step is going to [DownloadYouTubeVideo.com](download-youtube-video.com). Use Safari and go to this URL. If you are already using Safari while reading this article, you can click the link above and open it in new tab.
+First step is going to [DownloadYouTubeVideo](https://download-youtube-video.com). Use Safari and go to this URL. If you are already using Safari while reading this article, you can click the link above and open it in new tab.
 
 After opening the page, there will be a input box that says **Paste your video link here** and a button that says **Download Now**.
 

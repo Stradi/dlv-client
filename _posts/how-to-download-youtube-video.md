@@ -53,7 +53,7 @@ And it's done. After you complete all the steps above, the URL should be copied 
 There are so many browsers to use in a Android device. But the steps are always the same in all browsers.
 
 1. Open a browser you like
-2. Go to '[YouTube.com](youtube.com)'
+2. Go to '[YouTube](https://youtube.com)'
 3. Find the video you want to download and open it
 4. Click the text in top of the screen and select it
 5. Click '**Copy**' button
@@ -71,7 +71,7 @@ Right now, you are viewing this page in a browser. If you are on computer that's
 1. Open the browser
    ![Open browser](../assets/blog/how-to-download-youtube-video/desktop-open-browser.png "Open browser")
 
-2. Go to [YouTube](youtube.com)
+2. Go to [YouTube](https://youtube.com)
    ![Go to YouTube.com](../assets/blog/how-to-download-youtube-video/desktop-search-youtube.png "Search YouTube")
 
 3. Find the video you want to download
@@ -94,7 +94,7 @@ If you use Linux, you probably know how to copy a URL. I will not even put the l
 
 After copying the URL we can start the downloading process.
 
-First step is going to [DownloadYouTubeVideo.com](download-youtube-video.com). Use your browser and go to this url.
+First step is going to [DownloadYouTubeVideo](https://download-youtube-video.com). Use your browser and go to this url.
 
 After opening the page, you will be greeted with a input box and a button called '**Download Now**'.
 
