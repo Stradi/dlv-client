@@ -62,19 +62,19 @@
    </url>
    <url>
       <loc>https://www.download-youtube-video.com/twitter</loc>
-      <lastmod>2022-07-02</lastmod>
+      <lastmod>2022-07-13</lastmod>
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
    </url>
    <url>
       <loc>https://www.download-youtube-video.com/twitter/to/mp3</loc>
-      <lastmod>2022-07-03</lastmod>
+      <lastmod>2022-07-13</lastmod>
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
    </url>
    <url>
       <loc>https://www.download-youtube-video.com/twitter/to/mp4</loc>
-      <lastmod>2022-07-03</lastmod>
+      <lastmod>2022-07-13</lastmod>
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
    </url>
@@ -87,6 +87,12 @@
    <url>
       <loc>https://www.download-youtube-video.com/blog/youtube-downloader-for-iphone</loc>
       <lastmod>2022-07-06</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>1.0</priority>
+   </url>
+   <url>
+      <loc>https://www.download-youtube-video.com/blog/how-to-download-twitter-video</loc>
+      <lastmod>2022-07-13</lastmod>
       <changefreq>monthly</changefreq>
       <priority>1.0</priority>
    </url>
