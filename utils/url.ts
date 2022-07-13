@@ -1,10 +1,15 @@
-const validProviders = ['youtube.com', 'dailymotion.com', 'vimeo.com'];
+const validProviders = [
+  "youtube.com",
+  "dailymotion.com",
+  "vimeo.com",
+  "twitter.com",
+];
 
 const validateURL = (url: string): string | null => {
   if (!isValid(url)) {
-    return 'URL is not valid.';
+    return "URL is not valid.";
   } else if (!isProviderSupported(url)) {
-    return 'Provider is not supported.';
+    return "Provider is not supported.";
   } else {
     return null;
   }
@@ -18,7 +23,7 @@ const isValid = (url: string): boolean => {
     return false;
   }
 
-  return _url.protocol === 'http:' || _url.protocol === 'https:';
+  return _url.protocol === "http:" || _url.protocol === "https:";
 };
 
 const isProviderSupported = (url: string): boolean => {

@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import { providerToSpecialTextComponent } from '../utils/provider';
+import Link from "next/link";
+import { providerToSpecialTextComponent } from "../utils/provider";
 
 const DownloadersTable = () => {
   return (
@@ -7,13 +7,16 @@ const DownloadersTable = () => {
       <thead className="">
         <tr>
           <th className="text-neutral-300">
-            {providerToSpecialTextComponent('youtube')}
+            {providerToSpecialTextComponent("youtube")}
           </th>
           <th className="text-neutral-300">
-            {providerToSpecialTextComponent('dailymotion')}
+            {providerToSpecialTextComponent("dailymotion")}
           </th>
           <th className="text-neutral-300">
-            {providerToSpecialTextComponent('vimeo')}
+            {providerToSpecialTextComponent("vimeo")}
+          </th>
+          <th className="text-neutral-300">
+            {providerToSpecialTextComponent("twitter")}
           </th>
         </tr>
       </thead>
@@ -35,6 +38,13 @@ const DownloadersTable = () => {
           </th>
           <th className="group border-2 border-neutral-700 hover:border-blue-600 bg-neutral-800 rounded-md hover:bg-neutral-700 transition duration-100 m-4">
             <Link href="/vimeo">
+              <a className="py-2 font-normal text-base focus:outline-none focus:ring-2 focus:ring-blue-600 rounded-sm w-full h-full block no-underline text-neutral-300 group-hover:text-white transition duration-100">
+                Video
+              </a>
+            </Link>
+          </th>
+          <th className="group border-2 border-neutral-700 hover:border-blue-600 bg-neutral-800 rounded-md hover:bg-neutral-700 transition duration-100 m-4">
+            <Link href="/twitter">
               <a className="py-2 font-normal text-base focus:outline-none focus:ring-2 focus:ring-blue-600 rounded-sm w-full h-full block no-underline text-neutral-300 group-hover:text-white transition duration-100">
                 Video
               </a>
@@ -63,6 +73,13 @@ const DownloadersTable = () => {
               </a>
             </Link>
           </th>
+          <th className="group border-2 border-neutral-700 hover:border-blue-600 bg-neutral-800 rounded-md hover:bg-neutral-700 transition duration-100 m-4">
+            <Link href="/twitter/to/mp3">
+              <a className="py-2 font-normal text-base focus:outline-none focus:ring-2 focus:ring-blue-600 rounded-sm w-full h-full block no-underline text-neutral-300 group-hover:text-white transition duration-100">
+                MP3
+              </a>
+            </Link>
+          </th>
         </tr>
         <tr>
           <th className="group border-2 border-neutral-700 hover:border-blue-600 bg-neutral-800 rounded-md hover:bg-neutral-700 transition duration-100 m-4">
@@ -81,6 +98,13 @@ const DownloadersTable = () => {
           </th>
           <th className="group border-2 border-neutral-700 hover:border-blue-600 bg-neutral-800 rounded-md hover:bg-neutral-700 transition duration-100 m-4">
             <Link href="/vimeo/to/mp4">
+              <a className="py-2 font-normal text-base focus:outline-none focus:ring-2 focus:ring-blue-600 rounded-sm w-full h-full block no-underline text-neutral-300 group-hover:text-white transition duration-100">
+                MP4
+              </a>
+            </Link>
+          </th>
+          <th className="group border-2 border-neutral-700 hover:border-blue-600 bg-neutral-800 rounded-md hover:bg-neutral-700 transition duration-100 m-4">
+            <Link href="/twitter/to/mp4">
               <a className="py-2 font-normal text-base focus:outline-none focus:ring-2 focus:ring-blue-600 rounded-sm w-full h-full block no-underline text-neutral-300 group-hover:text-white transition duration-100">
                 MP4
               </a>

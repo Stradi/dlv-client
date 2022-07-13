@@ -19,6 +19,10 @@ const Layout = ({ children }: LayoutProps) => {
       title: "Vimeo",
       href: "/vimeo",
     },
+    {
+      title: "Twitter",
+      href: "/twitter",
+    },
   ];
 
   return (

@@ -1,7 +1,7 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps } from "next";
 
-import { providerToBrandName } from '../../../utils/provider';
-import BaseDownloaderPage from '../../../components/BaseDownloaderPage';
+import BaseDownloaderPage from "../../../components/BaseDownloaderPage";
+import { providerToBrandName } from "../../../utils/provider";
 
 interface DownloaderPageProps {
   provider: string;
@@ -13,8 +13,8 @@ const DownloaderPage = ({ provider, type }: DownloaderPageProps) => {
 };
 
 export const getStaticPaths: GetStaticPaths = () => {
-  const providers = ['YouTube', 'Dailymotion', 'Vimeo'];
-  const types = ['mp3', 'mp4'];
+  const providers = ["YouTube", "Dailymotion", "Vimeo", "Twitter"];
+  const types = ["mp3", "mp4"];
 
   const paths = providers.map((provider) =>
     types.map((type) => {

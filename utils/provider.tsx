@@ -1,4 +1,9 @@
-import { Dailymotion, Vimeo, YouTube } from "../components/SpecialText";
+import {
+  Dailymotion,
+  Twitter,
+  Vimeo,
+  YouTube,
+} from "../components/SpecialText";
 
 const providerToBrandName = (provider: string) => {
   switch (provider.toLowerCase()) {
@@ -8,6 +13,8 @@ const providerToBrandName = (provider: string) => {
       return "Dailymotion";
     case "vimeo":
       return "Vimeo";
+    case "twitter":
+      return "Twitter";
   }
 };
 
@@ -19,6 +26,8 @@ const providerToSpecialTextComponent = (provider: string) => {
       return <Dailymotion />;
     case "vimeo":
       return <Vimeo />;
+    case "twitter":
+      return <Twitter />;
   }
 };
 
