@@ -4,7 +4,7 @@ import { useState } from "react";
 import { providerToSpecialTextComponent } from "./../utils/provider";
 import Downloader from "./Downloader";
 import MarkdownRenderer from "./MarkdownRenderer";
-import { Dailymotion, Vimeo, YouTube } from "./SpecialText";
+import { Dailymotion, Twitter, Vimeo, YouTube } from "./SpecialText";
 import VideoDataDisplay from "./VideoDataDisplay";
 
 import Link from "next/link";
@@ -61,9 +61,7 @@ const BaseDownloaderPage = ({ provider, type }: BaseDownloaderPageProps) => {
           <p>You've come to the right place.</p>
           <p>
             Download YouTube Video is a free service that allows you to download
-            <YouTube />,<Dailymotion />
-            or
-            <Vimeo />
+            <YouTube />,<Dailymotion />, <Vimeo /> or <Twitter />
             videos and audios.
           </p>
           <p>
@@ -74,16 +72,23 @@ const BaseDownloaderPage = ({ provider, type }: BaseDownloaderPageProps) => {
           <p>The best part is our service is 100% free.</p>
           <h2>How to use?</h2>
           <p>
-            If you want more in-depth tutorial about downloading YouTube videos,
-            see{" "}
+            If you want more in-depth tutorial about downloading <YouTube />{" "}
+            videos, see{" "}
             <Link href="/blog/how-to-download-youtube-video">
               <a>this tutorial.</a>
             </Link>
           </p>
           <p>
             If you are using iPhone and want an in-depth tutorial about download
-            YouTube videos to iPhone, see{" "}
+            <YouTube /> videos to iPhone, see{" "}
             <Link href="/blog/youtube-downloader-for-iphone">
+              <a>this tutorial.</a>
+            </Link>
+          </p>
+          <p>
+            Downloading <Twitter /> videos are easy too. If you want an in-depth
+            tutorial about downloading <Twitter /> videos, see{" "}
+            <Link href="/blog/how-to-download-twitter-video">
               <a>this tutorial.</a>
             </Link>
           </p>
