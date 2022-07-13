@@ -7,6 +7,8 @@ ogImage: ""
 coverImage: ""
 ---
 
+# How to Download Twitter Video
+
 With our Twitter Downloader, it is both safer and easier to download Twitter videos for free. In this article we will go through some really easy steps for downloading Twitter videos to your iPhone, Android Device or your computer.
 
 Without further a do, let's start.
